@@ -1,0 +1,220 @@
+        body{
+            background-color: black;
+            margin: 0;
+            padding: 0;
+        }
+
+        .block-1{
+            width: 100%;
+            height: 150px;
+            background-color: white;
+            text-align: center; 
+        }
+
+        .text-1{
+            display: inline-block; 
+            position: relative;
+            padding: 75px 0;
+            cursor: pointer;
+        }
+
+        /* Сюда переехали твои стили для текста "MUSIC" */
+        .music-text {
+            font-size: medium;
+            color: black;
+            font-family: "Momo Trust Display", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+            text-shadow: 2px 2px 5px black;
+            
+            /* Добавлено: плавный переход для смены цвета */
+            transition: color 0.3s ease;
+        }
+
+
+        /* --- НОВЫЙ БЛОК И АНИМАЦИЯ --- */
+
+        /* Это твой новый прямоугольник "is cool" */
+        .cool-box {
+            /* 1. Внешний вид */
+            background-color: #000000; /* Светло-серый фон */
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            border-radius: 4px;
+            white-space: nowrap; /* Чтобы текст "is cool" не переносился */
+            
+            /* 2. Стили для "мил текс" */
+            font-size: medium;
+            color: rgb(255, 255, 255);
+            font-family: "Momo Trust Display", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+            text-shadow: 2px 2px 5px black;
+        
+            
+            /* 3. Позиция и начальное (скрытое) состояние */
+            position: absolute;   /* Двигаем его относительно .text-1 */
+            top: 50%;             /* Вертикально по центру текста */
+            left: 100%;           /* Справа от текста "MUSIC" */
+            margin-left: 10px;    /* Небольшой отступ справа */
+            
+            opacity: 0;           /* Изначально невидимый */
+            
+            /* Сдвигаем его чуть левее и вертикально по центру */
+            transform: translateY(-50%) translateX(-10px); 
+            
+            /* Плавная анимация для всех свойств */
+            transition: all 0.3s ease-out;
+        }
+
+
+        /* --- ЭФФЕКТЫ ПРИ НАВЕДЕНИИ --- */
+
+        /* 1. Твой старый эффект: "MUSIC" становится красным */
+        .text-1:hover .music-text {
+            color: red;
+        }
+
+        /* 2. Твой новый эффект: прямоугольник "выезжает" */
+        .text-1:hover .cool-box {
+            opacity: 1; /* Делаем видимым */
+            transform: translateY(-50%) translateX(0); /* Сдвигаем на место */
+        }
+
+        .block-2{
+            background-color: aliceblue;
+            width: 100%;
+            height: 75px;
+            display: flex;
+        }
+
+
+        .q1, .q2, .q3, .q4 {
+            cursor: pointer;
+            height: 100%;
+            font-size: medium;
+            color: black;
+            font-family: "Momo Trust Display", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+            text-shadow: 2px 2px 5px black;
+            flex: 1; 
+            border-radius: 25px;
+            text-align: center;
+            transition: color 0.3s ease;
+        }
+
+        .q1:hover, .q2:hover, .q3:hover, .q4:hover{
+                background-color: lightslategrey;
+                color: white;
+                
+        }
+
+        .block-3{
+            width: 100%;
+            height: 450px;
+            display: flex; 
+        }
+
+/* ЗАМЕНИ твои старые стили .k1, .k2, .k3, .k4 на эти.
+  Они добавят центрирование и превратят блоки в колонки.
+*/
+.k1, .k2, .k3, .k4 {
+    margin: 10px;
+    background-color: #222; /* Темный фон, как в Spotify */
+    height: 450px; /* Оставляем твою высоту */
+    
+    /* Исправлено: черный текст на темном фоне не виден */
+    color: white; 
+    
+    font-family: "Momo Trust Display", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    flex: 1; 
+    border: #000000 1px solid; 
+    border-radius: 7%;
+    transition: color 0.3s ease;
+    
+    /* --- НОВЫЕ СТИЛИ ДЛЯ ЦЕНТРИРОВАНИЯ --- */
+    
+    display: flex;
+    flex-direction: column;   /* Элементы внутри (картинка, текст) 
+                                 будут стоять друг под другом */
+    justify-content: center; /* Центрируем все по ВЕРТИКАЛИ */
+    align-items: center;     /* Центрируем все по ГОРИЗОНТАЛИ */
+    
+    /* Добавим отступы, чтобы контент не прилипал к краям */
+    padding: 20px;
+    box-sizing: border-box; /* Это важно, чтобы padding не сломал верстку */
+}
+
+/* =========================================
+   СТИЛИ ДЛЯ НОВЫХ ЭЛЕМЕНТОВ ПЛЕЕРА
+=========================================
+*/
+
+/* Стили для заголовков (ROK, POP...) */
+.k1 > h2, .k2 > h2, .k3 > h2, .k4 > h2 {
+    color: white;
+    text-shadow: 2px 2px 5px black;
+    font-size: 1.5em; /* Сделаем их чуть крупнее */
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* Стили для картинки альбома */
+.player-art {
+    width: 80%;           /* Ширина 80% от блока .k */
+    max-width: 180px;     /* Но не больше 180px */
+    aspect-ratio: 1 / 1;  /* Делает картинку идеально квадратной */
+    object-fit: cover;    /* Обрезает лишнее, чтобы вписать в квадрат */
+    border-radius: 12px;  /* Скругленные углы */
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5); /* Тень для объема */
+}
+
+/* Контейнер для текста "Название - Артист" */
+.track-info {
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.track-info h3 {
+    margin: 10px 0 5px 0;
+    font-size: 1.1em;
+}
+
+.track-info p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #b3b3b3; /* Классический серый цвет для подписей */
+}
+
+/* Стилизуем сам HTML-плеер */
+audio {
+    width: 90%; /* Ширина 90% от блока .k */
+    max-width: 240px; /* Но не больше 240px */
+}
+
+
+.block-4{
+    margin-top: 30px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 150px;
+    background-color: white;
+    text-align: center; 
+}
+
+.text-2{
+      display: inline-block; 
+            position: relative;
+            padding: 75px 0;
+     font-size: medium;
+            color: black;
+            font-family: "Momo Trust Display", sans-serif;
+            font-weight: 700;
+            font-style:italic;
+            text-shadow: 2px 2px 5px black;
+}
